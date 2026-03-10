@@ -13,6 +13,6 @@ The pipeline automates:
 
 1. Code build
 2. Code quality scan
-3. Artifact storage
+3. Artifact storage,
 4. Docker image creation
 5. Kubernetes deployment
