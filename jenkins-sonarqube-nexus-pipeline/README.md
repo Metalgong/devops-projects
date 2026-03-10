@@ -16,3 +16,20 @@ The pipeline automates:
 3. Artifact storage,
 4. Docker image creation
 5. Kubernetes deployment
+
+
+## Architecture Diagram
+
+![Architecture](diagrams/architecture.png)
+
+---
+
+## Jenkins Pipeline
+
+![Pipeline](screenshots/jenkins-pipeline.png)
+
+---
+
+## SonarQube Scan
+
+![SonarQube](screenshots/sonarqube-scan.png)
