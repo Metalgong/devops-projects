@@ -1,1 +1,42 @@
+pipeline {
+    agent any
 
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/example/repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('SonarQube Scan') {
+            steps {
+                sh 'mvn sonar:sonar'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t app-image .'
+            }
+        }
+
+        stage('Push to Nexus') {
+            steps {
+                sh 'docker push nexus/app-image'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f kubernetes-deployment.yaml'
+            }
+        }
+    }
+}
